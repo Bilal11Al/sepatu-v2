@@ -32,6 +32,7 @@ function SideBar() {
                             <SideBarSub link="/dashboard/user" linkText="User Data" />
                             <SideBarSub link="/dashboard/role" linkText="Role Data" />
                             <SideBarSub link="/dashboard/category" linkText="Category Data" />
+                            <SideBarSub link="/dashboard/product" linkText="Product Data" />
                         </>
                     )}
                 </div>
@@ -48,7 +49,7 @@ function SideBar() {
                         <SideBarSub link="/dashboard" linkText="Order" />
                     )}
                 </div>
-            
+
             </div>
         </>
 

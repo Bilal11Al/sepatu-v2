@@ -10,6 +10,7 @@ import User from './pages/admin/User'
 import Dasboard from './pages/admin/Dasboard'
 import Role from './pages/admin/Role'
 import Category from './pages/admin/Category'
+import Product from './pages/admin/Product'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path='/dashboard/user/' element={<User />} />
         <Route path='/dashboard/role' element={<Role />} />
         <Route path='/dashboard/category' element={<Category />} />
+        <Route path='/dashboard/product' element={<Product />} />
       </Route>
     </Routes>
 
