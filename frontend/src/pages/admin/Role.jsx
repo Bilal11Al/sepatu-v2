@@ -110,15 +110,17 @@ export default function Role() {
     }
     return (
         <div className="mt-1 p-3">
-            <div className="mb-2 flex justify-end items-center">
-                <Button text={"Tambah role"} className={' p-2 px-3 py-1 bg-blue-500 text-white rounded-sm cursor-pointer'} onSmash={handelBtn} />
+            <div className="bg-white shadow-lg p-2 rounded-2xl">
+                <div className="mb-2 flex justify-end items-center">
+                    <Button text={"Tambah role"} className={' p-2 px-3 py-1 bg-blue-500 text-white rounded-sm cursor-pointer'} onSmash={handelBtn} />
+                </div>
+                <RoleTable loading={loading} dataRoles={dataRoles} onEdit={handelBtn} onDelete={handelDelete} />
+                {modal && (
+                    <Modal>
+                        <RoleForm onClose={() => setModal(false)} role={role} setRole={setRole} editId={editId} onSubmit={handelSubmit} />
+                    </Modal>
+                )}
             </div>
-            <RoleTable loading={loading} dataRoles={dataRoles} onEdit={handelBtn} onDelete={handelDelete} />
-            {modal && (
-                <Modal>
-                    <RoleForm onClose={() => setModal(false)} role={role} setRole={setRole} editId={editId} onSubmit={handelSubmit} />
-                </Modal>
-            )}
         </div>
 
     )

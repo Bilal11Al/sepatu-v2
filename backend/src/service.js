@@ -13,7 +13,8 @@ app.use("/api", auth);
 app.use("/api", roleRouter);
 app.use("/api", userRole);
 app.use("/api", category);
-app.use("/api", express.static("upload"), product);
+app.use("/api", product);
+app.use("/upload", express.static("upload"));
 
 app.listen(4000, () => {
   console.log("server berjalan di port 4000");

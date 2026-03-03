@@ -29,11 +29,11 @@ const getProducts = async (req, res) => {
 
 const createProduct = async (req, res) => {
   const { name, description, categoreis_id, price } = req.body;
-  const image = req.file.filename;
   try {
     if (!req.file) {
       return res.status(400).json({ message: "image harus di upload" });
     }
+    const image = req.file.filename;
     const products = await insertProduct({
       name,
       image,
@@ -113,7 +113,6 @@ const productDelete = async (req, res) => {
   try {
     const products = await getProductByid(id);
 
-
     if (!products || products.length === 0) {
       return res.status(404).json({
         status: "fail",
@@ -123,14 +122,12 @@ const productDelete = async (req, res) => {
 
     const image = products[0].image;
 
-
     if (image) {
       const pathImage = path.join(__dirname, "../../upload", image);
       if (fs.existsSync(pathImage)) {
         fs.unlinkSync(pathImage);
       }
     }
-
 
     await deleteProducts(id);
 

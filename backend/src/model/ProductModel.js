@@ -1,7 +1,7 @@
 import db from "../config/database.js";
 
 const getProduct = async () => {
-  const sql = `SELECT * FROM products`;
+  const sql = `SELECT p.name,p.description,p.image,p.categoreis_id,p.price,c.category FROM products as p JOIN categories AS c ON c.id = p.categoreis_id`;
   const [rows] = await db.execute(sql);
   return rows;
 };
@@ -47,4 +47,10 @@ const deleteProducts = async (id) => {
   return rows;
 };
 
-export { getProduct, insertProduct, updateProducts, getProductByid,deleteProducts };
+export {
+  getProduct,
+  insertProduct,
+  updateProducts,
+  getProductByid,
+  deleteProducts,
+};

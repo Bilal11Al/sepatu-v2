@@ -93,15 +93,17 @@ export default function Category() {
 
     return (
         <div className="mt-1 p-2">
-            <div className="p-1 flex justify-end items-center">
-                <Button text={"Tambah Category"} className={'bg-blue-500 p-2 px-2 py-1 text-white  rounded-sm cursor-pointer'} onSmash={handelBtn} />
+            <div className="bg-white shadow-lg p-2 rounded-2xl">
+                <div className="p-1 flex justify-end items-center">
+                    <Button text={"Tambah Category"} className={'bg-blue-500 p-2 px-2 py-1 text-white  rounded-sm cursor-pointer'} onSmash={handelBtn} />
+                </div>
+                <CategoryTable data={data} onEdit={handelBtn} loading={loading} onDelete={handelDelete} />
+                {modal && (
+                    <Modal>
+                        <CategoryForm onClose={() => setModal(false)} category={category} setCategory={setCategory} editId={edit} onSubmit={handelSubmit} />
+                    </Modal>
+                )}
             </div>
-            <CategoryTable data={data} onEdit={handelBtn} loading={loading} onDelete={handelDelete} />
-            {modal && (
-                <Modal>
-                    <CategoryForm onClose={() => setModal(false)} category={category} setCategory={setCategory} editId={edit} onSubmit={handelSubmit} />
-                </Modal>
-            )}
         </div>
     )
 }

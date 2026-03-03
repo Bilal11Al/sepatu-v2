@@ -5,8 +5,6 @@ import Modal from "../../components/modal/Modal";
 import UserForm from "../../components/Dashobard/UserForm";
 import api from "../../service/api";
 
-
-
 function User() {
     const [user, setUser] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -119,15 +117,17 @@ function User() {
     }
     return (
         <div className="p-3 mt-1">
-            <div className="mb-2 flex justify-end items-center">
-                <Button text={"Tambah user"} className={"px-3 py-1 bg-blue-500 text-white rounded-sm cursor-pointer"} onSmash={handelAdd} />
-                {modal && (
-                    <Modal>
-                        <UserForm onClose={() => { setModal(false) }} onSubmit={handelSubmit} data={data} setData={setData} editId={EditId} role={role} />
-                    </Modal>
-                )}
+            <div className="bg-white shadow-lg p-2 rounded-2xl">
+                <div className="mb-2 flex justify-end items-center">
+                    <Button text={"Tambah user"} className={"px-3 py-1 bg-blue-500 text-white rounded-sm cursor-pointer"} onSmash={handelAdd} />
+                    {modal && (
+                        <Modal>
+                            <UserForm onClose={() => { setModal(false) }} onSubmit={handelSubmit} data={data} setData={setData} editId={EditId} role={role} />
+                        </Modal>
+                    )}
+                </div>
+                <UserTable loading={loading} user={user} onEdit={handleEdit} onDelete={handleDelete} />
             </div>
-            <UserTable loading={loading} user={user} onEdit={handleEdit} onDelete={handleDelete} />
         </div>
     )
 }
