@@ -8,7 +8,7 @@ import TabelHead from "../tabel/TabelHead";
 export default function CategoryTable({ data, onEdit, onDelete, loading }) {
     return (
         <Tabel>
-            <thead>
+            <thead className="bg-gray-300">
                 <tr>
                     <TabelHead text={'No'} />
                     <TabelHead text={'Category Name'} />

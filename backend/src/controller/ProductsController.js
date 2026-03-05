@@ -28,8 +28,10 @@ const getProducts = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const { name, description, categoreis_id, price } = req.body;
   try {
+    const { name, description, categoreis_id, price, is_active, qty } =
+      req.body;
+    console.log(req.body);
     if (!req.file) {
       return res.status(400).json({ message: "image harus di upload" });
     }
@@ -40,6 +42,8 @@ const createProduct = async (req, res) => {
       description,
       categoreis_id,
       price,
+      is_active,
+      qty,
     });
 
     res.status(201).json({
@@ -56,7 +60,7 @@ const createProduct = async (req, res) => {
 };
 
 const updateProduct = async (req, res) => {
-  const { name, description, categoreis_id, price } = req.body;
+  const { name, description, categoreis_id, price,is_active,qty } = req.body;
   const id = Number(req.params.id);
   try {
     const product = await getProductByid(id);
@@ -86,6 +90,8 @@ const updateProduct = async (req, res) => {
     if (image !== undefined) updateData.image = image;
     if (categoreis_id !== undefined) updateData.categoreis_id = categoreis_id;
     if (price !== undefined) updateData.price = price;
+    if (is_active !== undefined) updateData.is_active = is_active;
+    if (qty !== undefined) updateData.qty= qty;
 
     if (Object.keys(updateData).length === 0) {
       return res.status(400).json({

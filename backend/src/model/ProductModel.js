@@ -1,13 +1,13 @@
 import db from "../config/database.js";
 
 const getProduct = async () => {
-  const sql = `SELECT p.name,p.description,p.image,p.categoreis_id,p.price,c.category FROM products as p JOIN categories AS c ON c.id = p.categoreis_id`;
+  const sql = `SELECT p.id, p.name,p.description,p.image,p.categoreis_id,p.price,p.is_active,p.qty,c.category FROM products as p JOIN categories AS c ON c.id = p.categoreis_id`;
   const [rows] = await db.execute(sql);
   return rows;
 };
 
 const insertProduct = async (data) => {
-  const sql = `INSERT INTO products(name, description, image, categoreis_id, price) VALUES (?,?,?,?,?)`;
+  const sql = `INSERT INTO products(name, description, image, categoreis_id, price,is_active,qty) VALUES (?,?,?,?,?)`;
   const [rows] = await db.execute(sql, [
     data.name,
     data.description,

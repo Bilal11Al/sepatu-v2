@@ -8,12 +8,14 @@ export default function ProductTabel({ loading, data, onEdit, onDelte }) {
     const BASE_URL = `http://localhost:4000/upload/`;
     return (
         <Tabel>
-            <thead>
+            <thead className="bg-gray-300">
                 <tr>
                     <TabelHead text={'No'} />
                     <TabelHead text={'Name'} />
                     <TabelHead text={'Kategori'} />
                     <TabelHead text={'Desctrption'} />
+                    <TabelHead text={'Is Active'} />
+                    <TabelHead text={'Qty'} />
                     <TabelHead text={'Image'} />
                     <TabelHead text={'Price'} />
                     <TabelHead text={'Aksi'} />
@@ -27,6 +29,8 @@ export default function ProductTabel({ loading, data, onEdit, onDelte }) {
                             <TabelBody text={p.name} />
                             <TabelBody text={p.category} />
                             <TabelBody text={p.description} />
+                            <TabelBody text={String(p.is_active == 1 ? "active" : "Non active")} />
+                            <TabelBody text={p.qty ?? 0} />
                             <TabelBody text={
                                 <img src={BASE_URL + p.image} width="80px" />
                             } />
