@@ -31,7 +31,6 @@ const createProduct = async (req, res) => {
   try {
     const { name, description, categoreis_id, price, is_active, qty } =
       req.body;
-    console.log(req.body);
     if (!req.file) {
       return res.status(400).json({ message: "image harus di upload" });
     }

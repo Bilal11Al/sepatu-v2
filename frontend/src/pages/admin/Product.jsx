@@ -118,13 +118,30 @@ export default function Product() {
         }
     }
 
+    async function handelDelete(id) {
+        const confirm = window.confirm("Apakah anda yakin menghapus !!");
+        if (!confirm) return;
+        try {
+            const response = await fetch(`${api()}products/${id}`, {
+                method: "DELETE"
+            })
+            const result = await response.json()
+            if (response.ok) {
+                fetchProduct();
+                alert(result.message)
+            }
+        } catch (error) {
+            console.log("gagal menghapus data", error.message)
+        }
+    }
+
     return (
         <div className="p-1 m-1">
             <div className="bg-white shadow-lg p-2 rounded-2xl">
                 <div className="flex justify-end items-center">
                     <Button text={'Tambah Product'} className={'bg-blue-500 p-2 px-2 py-1 rounded-sm text-sm text-white cursor-pointer'} onSmash={() => handelForm(null)} />
                 </div>
-                <ProductTabel data={product} loading={loading} onEdit={handelForm} />
+                <ProductTabel data={product} loading={loading} onEdit={handelForm} onDelte={handelDelete} />
                 {modal && (
                     <Modal>
                         <ProductFrom

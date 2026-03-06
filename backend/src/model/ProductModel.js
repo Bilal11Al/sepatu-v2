@@ -7,13 +7,15 @@ const getProduct = async () => {
 };
 
 const insertProduct = async (data) => {
-  const sql = `INSERT INTO products(name, description, image, categoreis_id, price,is_active,qty) VALUES (?,?,?,?,?)`;
+  const sql = `INSERT INTO products(name, description, image, categoreis_id, price,is_active,qty) VALUES (?,?,?,?,?,?,?)`;
   const [rows] = await db.execute(sql, [
     data.name,
     data.description,
     data.image,
     data.categoreis_id,
     data.price,
+    data.is_active,
+    data.qty,
   ]);
   return rows;
 };
