@@ -13,7 +13,7 @@ function Navbar() {
    after:h-[3px] after:bg-blue-400
    after:transition-all after:duration-300`
     return (
-        <nav className="px-5 mb-3 bg-gray-100">
+        <nav className="px-5  bg-gray-100">
             <div className="text-black px-6 py-4 rounded-lg">
                 <div className="flex items-center justify-between">
                     <p className="text-xl font-bold tracking-wide">

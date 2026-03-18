@@ -1,7 +1,32 @@
-function Home () {
+import hero from "../../assets/Product-presentation-rafiki.svg"; // Pastikan nama file tidak ada spasi
+
+function Home() {
     return (
-        <h1>ini home</h1>
-    )
+        <div className="bg-blue-600 min-h-100 flex items-center">
+            <div className="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-10">
+                <div className="max-w-2xl text-white">
+                    <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        Langkah Pasti, Gaya Tak Terhenti
+                    </h1>
+                    <p className="text-lg opacity-90 mb-8 leading-relaxed">
+                        Temukan koleksi sepatu premium yang menggabungkan kenyamanan
+                        maksimal dengan desain modern untuk setiap aktivitasmu.
+                    </p>
+                    <button className="bg-white text-blue-600 hover:bg-gray-100 transition-colors px-8 py-3 rounded-md font-bold text-lg shadow-lg">
+                        Belanja Sekarang
+                    </button>
+                </div>
+                <div className="w-full max-w-md lg:max-w-lg">
+                    <img
+                        src={hero}
+                        alt="Hero Presentation"
+                        className="w-full h-auto object-contain drop-shadow-xl"
+                    />
+                </div>
+
+            </div>
+        </div>
+    );
 }
 
-export default Home
+export default Home;
