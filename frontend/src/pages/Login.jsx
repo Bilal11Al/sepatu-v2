@@ -3,25 +3,36 @@ import LoginForm from "../components/login/LoginForm";
 
 function Login() {
     return (
-        <div className="px-2 bg-linear-to-tr from-blue-800 to-blue-400 w-full h-screen p-5 flex justify-center items-center">
-            <div className="bg-gray-100 h-150 w-220  grid grid-cols-2 rounded-sm">
-                <div className="p-10 w-full h-full rounded-sm bg-[url(https://img.freepik.com/premium-vector/geometric-gradient-technology-background_23-2149110132.jpg?semt=ais_hybrid&w=740&q=80)] bg-cover bg-repeat">
-                    <h1 className="text-white">Logo</h1>
-                    <div className="text-white flex flex-col justify-center items-center h-full p-5">
-                        <h1 className="text-3xl font-bold mb-2 text-strat w-full">Selamat datang</h1>
-                        <p className="text-justify text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus tenetur incidunt pariatur illum, neque qui facilis maxime ipsa earum velit commodi corporis, autem tempore numquam animi molestiae amet consectetur. Assumenda?</p>
-                        <NavLink to={"/"} className={'w-full p-2 text-start text-sm hover:text-blue-400 hover:underline'}>Kembali ke Website</NavLink>
+        <div className="min-h-screen w-full bg-linear-to-tr from-blue-800 to-blue-400 flex justify-center items-center p-4 md:p-10">
+            <div className="bg-gray-100 w-full max-w-5xl flex flex-col md:flex-row rounded-xl shadow-2xl overflow-hidden min-h-[500px]">
+                <div className="hidden md:flex md:w-1/2 p-10 bg-[url('https://img.freepik.com/premium-vector/geometric-gradient-technology-background_23-2149110132.jpg?semt=ais_hybrid&w=740&q=80')] bg-cover bg-center flex-col justify-between text-white">
+                    <h1 className="text-2xl font-bold italic">Logo</h1>
+
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">Selamat datang</h2>
+                        <p className="text-justify text-sm leading-relaxed opacity-90 mb-6">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus tenetur incidunt pariatur illum, neque qui facilis maxime ipsa earum velit commodi corporis.
+                        </p>
+                        <NavLink to={"/"} className="inline-block text-sm border-b border-white hover:text-blue-200 hover:border-blue-200 transition">
+                            Kembali ke Website
+                        </NavLink>
                     </div>
                 </div>
-                <div className="p-2 w-96 h-full flex justify-center items-center ms-9">
-                    <div className=" h-60 w-full ">
-                        <h1 className="text-3xl mb-4 text-center font-bold text-green-800 underline">Login Akun</h1>
+                <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-white">
+                    <NavLink to="/" className="md:hidden text-blue-600 text-sm font-medium mb-6 flex items-center gap-2">
+                        ← Kembali ke Website
+                    </NavLink>
+                    <div className="w-full max-w-sm mx-auto">
+                        <h1 className="text-3xl mb-2 font-bold text-gray-800">
+                            Login Akun
+                        </h1>
+                        <p className="text-gray-500 text-sm mb-8">Silakan masukkan kredensial Anda untuk masuk.</p>
                         <LoginForm />
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Login;
