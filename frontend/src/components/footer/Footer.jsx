@@ -17,7 +17,7 @@ export default function Footer() {
                     <h2 className="text-white font-bold text-2xl py-5">Site map</h2>
                     <div className="flex flex-col space-y-3">
                         <NavLink to={"/"} className={'text-white'}>Home</NavLink >
-                        <NavLink to={"/"} className={'text-white'}>About</NavLink >
+                        <NavLink to={"/about"} className={'text-white'}>About</NavLink >
                         <NavLink to={"/"} className={'text-white'}>Product</NavLink >
                         <NavLink to={"/"} className={'text-white'}>Contact</NavLink >
                     </div>
