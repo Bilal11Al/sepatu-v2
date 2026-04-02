@@ -18,7 +18,7 @@ export default function Footer() {
                     <div className="flex flex-col space-y-3">
                         <NavLink to={"/"} className={'text-white'}>Home</NavLink >
                         <NavLink to={"/about"} className={'text-white'}>About</NavLink >
-                        <NavLink to={"/"} className={'text-white'}>Product</NavLink >
+                        <NavLink to={"/product"} className={'text-white'}>Product</NavLink >
                         <NavLink to={"/"} className={'text-white'}>Contact</NavLink >
                     </div>
                 </div>
