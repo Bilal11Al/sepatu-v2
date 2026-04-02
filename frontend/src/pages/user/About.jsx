@@ -1,4 +1,7 @@
+import AboutCta from "../../components/aboutPage/AboutCta";
 import AboutSejarah from "../../components/aboutPage/AboutSejarah";
+import AboutTestimoni from "../../components/aboutPage/AboutTestimoni";
+import AboutVisiMisi from "../../components/aboutPage/AboutVisiMisi";
 import HeroAbout from "../../components/aboutPage/HeroAbout";
 
 function About() {
@@ -6,6 +9,9 @@ function About() {
         <div>
             <HeroAbout />
             <AboutSejarah />
+            <AboutTestimoni />
+            <AboutVisiMisi />
+            <AboutCta />
         </div>
     )
 }

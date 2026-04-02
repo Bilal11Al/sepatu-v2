@@ -1,10 +1,10 @@
 export default function AboutSejarah() {
     return (
         <div className="bg-blue-50 p-5 py-15 px-5 grid grid-cols-1 md:grid-cols-2">
-            <div className="p-5 py-15 relative flex md:justify-center items-center">
-                <div className="bg-red-300 px-20 py-25 inline-block rounded-2xl z-10">
+            <div className="p-5 py-15 relative flex justify-center items-center">
+                <div className="bg-red-300 bg-[url(https://i.pinimg.com/originals/75/f0/f6/75f0f6b7dd94dbd496b5a49f7c534862.jpg)] bg-cover bg-no-repeat bg-center  px-20 py-25 inline-block rounded-2xl z-10 shadow-xl/30">
                 </div>
-                <div className="bg-green-400 px-15 py-20 inline-block absolute bottom-1 translate-x-25 rounded-2xl z-20">
+                <div className="bg-green-400  bg-[url(https://api.duniagames.co.id/api/content/upload/file/10876326841664957453.jpg)] bg-cover bg-no-repeat bg-center px-15 py-20 inline-block absolute bottom-1 translate-x-25 rounded-2xl z-20 shadow-xl/30">
                 </div>
             </div>
             <div className="p-5 py-15">
