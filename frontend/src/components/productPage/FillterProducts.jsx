@@ -3,8 +3,7 @@ import { useState } from "react"
 export default function FillterProducts() {
     const [open, setOpen] = useState(false);
     return (
-
-        <div className="w-full md:w-72 bg-white border border-gray-100 shadow-sm rounded-3xl p-6 sticky top-5">
+        <div className="w-full md:w-72 bg-white border border-gray-100 shadow-sm rounded-3xl p-6  top-5">
             <h3 className="font-black text-2xl mb-6 text-gray-800 tracking-tight">Katalog</h3>
             <div className="mb-8">
                 <p className="font-bold text-xs uppercase tracking-widest text-blue-600 mb-4">Kategori</p>
@@ -27,13 +26,12 @@ export default function FillterProducts() {
                 <p className="font-bold text-lg uppercase tracking-widest text-blue-600">Filter by:</p>
                 <div
                     className="flex justify-between items-center cursor-pointer group select-none"
-                    onClick={() => setOpen(!open)}
+                    onClick={() => setOpen(prev => prev === "size" ? null : 'size')}
                 >
                     <p className="font-bold text-xs uppercase tracking-widest text-blue-600"> Size</p>
-                    <ChevronDownIcon className={`h-4 text-gray-400 transition-transform duration-300 ${open ? "rotate-180 text-blue-600" : ''}`} />
+                    <ChevronDownIcon className={`h-4 text-gray-400 transition-transform duration-300 ${open === "size" ? "rotate-180 text-blue-600" : ''}`} />
                 </div>
-
-                {open && (
+                {open === "size" && (
                     <div className="mt-4 grid grid-cols-2 gap-2">
                         <label className="flex items-center justify-center border border-gray-200 rounded-xl py-2 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all group">
                             <input type="checkbox" className="hidden" />
@@ -53,6 +51,36 @@ export default function FillterProducts() {
                             <span className="text-sm font-bold text-gray-600 group-hover:text-blue-600">42</span>
                         </label>
                     </div>
+                )}
+
+                <div
+                    className="flex justify-between items-center cursor-pointer group select-none mt-2"
+                    onClick={() => setOpen(prev => prev === "price" ? null : 'price')}
+                >
+                    <p className="font-bold text-xs uppercase tracking-widest text-blue-600">Price</p>
+                    <ChevronDownIcon className={`h-4 text-gray-400 transition-transform duration-300 ${open === "price" ? "rotate-180 text-blue-600" : ''}`} />
+                </div>
+                {open === "price" && (
+                    <>
+                        <div className="p-5">
+                            <label className="flex justify-between items-center gap-2 mb-2">
+                                <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
+                                <span className="text-sm font-bold">Rp.150.000 - Rp.250.000</span>
+                            </label>
+                            <label className="flex justify-between items-center gap-2 mb-2">
+                                <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
+                                <span className="text-sm font-bold">Rp.150.000 - Rp.250.000</span>
+                            </label>
+                            <label className="flex justify-between items-center gap-2 mb-2">
+                                <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
+                                <span className="text-sm font-bold">Rp.150.000 - Rp.250.000</span>
+                            </label>
+                            <label className="flex justify-between items-center gap-2 mb-2">
+                                <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
+                                <span className="text-sm font-bold">Rp.150.000 - Rp.250.000</span>
+                            </label>
+                        </div>
+                    </>
                 )}
             </div>
         </div>
