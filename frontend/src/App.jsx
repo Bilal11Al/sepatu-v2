@@ -12,6 +12,7 @@ import Role from './pages/admin/Role'
 import Category from './pages/admin/Category'
 import Product from './pages/admin/Product'
 import Products from './pages/user/Product'
+import Contact from './pages/user/Contact'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Products />} />
+        <Route path='/contact' element={<Contact />} />
       </Route>
 
       <Route element={<DasboardLayout />}>

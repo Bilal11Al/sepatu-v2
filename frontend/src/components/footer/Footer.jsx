@@ -19,7 +19,7 @@ export default function Footer() {
                         <NavLink to={"/"} className={'text-white'}>Home</NavLink >
                         <NavLink to={"/about"} className={'text-white'}>About</NavLink >
                         <NavLink to={"/product"} className={'text-white'}>Product</NavLink >
-                        <NavLink to={"/"} className={'text-white'}>Contact</NavLink >
+                        <NavLink to={"/contact"} className={'text-white'}>Contact</NavLink >
                     </div>
                 </div>
                 <div className="p-5 py-5 px-6 space-y-2">
