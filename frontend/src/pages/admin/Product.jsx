@@ -98,7 +98,7 @@ export default function Product() {
             setForm({
                 name: productItem.name || "",
                 description: productItem.description || "",
-                image: null,
+                image: productItem.image,
                 categoreis_id: productItem.categoreis_id || "",
                 price: productItem.price || "",
                 is_active: productItem.is_active ?? "",

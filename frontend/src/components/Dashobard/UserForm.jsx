@@ -5,43 +5,74 @@ import { useState } from "react";
 
 export default function UserForm({ data, setData, onClose, onSubmit, editId, role }) {
     const [show, setShow] = useState(false);
-    //ini function buat menentukan handelchange masing masih input
+
     function handelChange(e) {
         const { name, value } = e.target;
         setData(prev => ({ ...prev, [name]: value }))
     }
+
     return (
-        <>
-            <div className="w-5" onClick={onClose}>
-                <XMarkIcon className="h-5 cursor-pointer" />
+        // Wrapper utama: Pastikan tidak ada class lebar yang aneh
+        <div className="w-full">
+            
+            {/* Header: Tombol Close & Judul */}
+            <div className="flex items-center mb-6">
+                <button 
+                    type="button"
+                    onClick={onClose} 
+                    className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                    <XMarkIcon className="h-6 w-6 text-gray-500" />
+                </button>
+                <h1 className="flex-1 text-center text-xl font-bold text-gray-800 pr-6">
+                    {editId ? "Update User" : "Tambah User"}
+                </h1>
             </div>
-            <h1 className=" p-2 text-center text-2xl font-semibold m-3">{editId ? "update user" : "tambah user"}</h1>
-            <form action="" onSubmit={onSubmit}>
-                <div className="flex flex-col mb-2 w-90">
+
+            {/* Form: Gunakan block agar tidak berantakan */}
+            <form onSubmit={onSubmit} className="block space-y-4">
+                
+                <div className="block w-full">
                     <Input labelText={"Username"} name={"username"} type={"text"} placeholder={"Masukan username"} value={data.username} onChange={handelChange} />
                 </div>
-                <div className="flex flex-col mb-2 w-90">
-                    <Input labelText={"Email"} name={"email"} type={"text"} placeholder={"Masukan Email"} value={data.email} onChange={handelChange} />
+                
+                <div className="block w-full">
+                    <Input labelText={"Email"} name={"email"} type={"email"} placeholder={"Masukan Email"} value={data.email} onChange={handelChange} />
                 </div>
-                <div className="flex flex-col mb-2 w-90 relative">
+
+                <div className="block w-full relative">
                     <Input labelText={"Password"} name={"password"} type={show ? "text" : "password"} placeholder={"Masukan Password"} value={data.password} onChange={handelChange} />
-                    <Button type={"button"} onSmash={() => setShow(prev => !prev)} className={"absolute inset-y-9 right-3  text-gray-500 hover:text-gray-700 cursor-pointer"} text={show ? (
-                        <EyeSlashIcon className="w-5 h-5 " />
-                    ) : (
-                        <EyeIcon className="w-5 h-5" />
-                    )} />
+                    <button 
+                        type="button" 
+                        onClick={() => setShow(!show)} 
+                        className="absolute right-3 top-8.5 p-1 text-gray-500"
+                    >
+                        {show ? <EyeSlashIcon className="w-5 h-5" /> : <EyeIcon className="w-5 h-5" />}
+                    </button>
                 </div>
-                <div className="flex flex-col mb-2 w-90">
-                    <label htmlFor="">Role</label>
-                    <select name="role_id" id="" className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-300" value={Number(data.role_id)} onChange={handelChange}>
-                        <option value="">--Pilih role--</option>
+
+                <div className="block w-full">
+                    <label className="text-sm font-medium mb-1 block">Role</label>
+                    <select 
+                        name="role_id" 
+                        className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500" 
+                        value={Number(data.role_id) || ""} 
+                        onChange={handelChange}
+                    >
+                        <option value="">-- Pilih Role --</option>
                         {role.map((roles) => (
                             <option key={roles.id} value={Number(roles.id)}>{roles.role}</option>
                         ))}
                     </select>
                 </div>
-                <Button text={editId ? "update" : "simpan"} type={"submit"} className="bg-blue-600 text-white text-sm font-bold p-2 w-90 mt-2 cursor-pointer rounded-lg hover:bg-blue-400" />
+
+                <button 
+                    type="submit" 
+                    className="w-full bg-blue-600 text-white font-bold py-2.5 rounded-lg hover:bg-blue-700 mt-2"
+                >
+                    {editId ? "Update" : "Simpan"}
+                </button>
             </form>
-        </>
+        </div>
     )
 }
