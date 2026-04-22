@@ -13,6 +13,8 @@ import Category from './pages/admin/Category'
 import Product from './pages/admin/Product'
 import Products from './pages/user/Product'
 import Contact from './pages/user/Contact'
+import ForbiddenPage from './pages/ForbiddenPage'
+import ProtectedRoute from './utils/ProtectedRoute'
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path='/register' element={<Register />} />
+      <Route path="/403" element={<ForbiddenPage />} />
       <Route element={<MainLayout />}>
         <Route path='/' element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -29,11 +32,13 @@ function App() {
       </Route>
 
       <Route element={<DasboardLayout />}>
-        <Route path='/dashboard' element={<Dasboard />} />
-        <Route path='/dashboard/user/' element={<User />} />
-        <Route path='/dashboard/role' element={<Role />} />
-        <Route path='/dashboard/category' element={<Category />} />
-        <Route path='/dashboard/product' element={<Product />} />
+        <Route element={<ProtectedRoute roleRequired={2} />}>
+          <Route path='/dashboard' element={<Dasboard />} />
+          <Route path='/dashboard/user' element={<User />} />
+          <Route path='/dashboard/role' element={<Role />} />
+          <Route path='/dashboard/category' element={<Category />} />
+          <Route path='/dashboard/product' element={<Product />} />
+        </Route>
       </Route>
     </Routes>
 

@@ -6,12 +6,12 @@ import {
   usersUpdate,
   usersDelete,
 } from "../controller/UserController.js";
-
+import AdminMidleware from "../middleware/AdminMidleware.js";
 const router = express.Router();
 
-router.get("/users", authMiddleware, getUsers);
-router.post("/users", authMiddleware, createUsers);
-router.patch("/users/:id", authMiddleware, usersUpdate);
-router.delete("/users/:id", authMiddleware, usersDelete);
+router.get("/users", authMiddleware,AdminMidleware, getUsers);
+router.post("/users", authMiddleware,AdminMidleware, createUsers);
+router.patch("/users/:id", authMiddleware,AdminMidleware, usersUpdate);
+router.delete("/users/:id", authMiddleware,AdminMidleware, usersDelete);
 
 export default router;

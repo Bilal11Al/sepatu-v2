@@ -4,6 +4,7 @@ import userRole from "./routers/UsersRouter.js";
 import auth from "./routers/AuthRouters.js";
 import category from "./routers/CategoryRouters.js";
 import product from "./routers/ProductsRouters.js";
+import sizes from "./routers/SizeRouters.js";
 import cors from "cors";
 const app = express();
 
@@ -14,6 +15,7 @@ app.use("/api", roleRouter);
 app.use("/api", userRole);
 app.use("/api", category);
 app.use("/api", product);
+app.use("/api", sizes);
 app.use("/upload", express.static("upload"));
 
 app.listen(4000, () => {

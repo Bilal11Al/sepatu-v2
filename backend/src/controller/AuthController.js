@@ -57,6 +57,7 @@ const login = async (req, res) => {
     const token = jwt.sign(
       {
         id: user.id,
+        role: user.role_id,
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" },
@@ -72,12 +73,13 @@ const login = async (req, res) => {
     });
   }
 };
-
 const me = async (req, res) => {
   try {
-    const user = await getUsersById(req.userId);
-    if (!user)
-      return res.status(400).json({ message: "user tidak di temukan" });
+    const user = await getUsersById(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({ message: "User tidak ditemukan" });
+    }
     res.json(user);
   } catch (error) {
     res.status(500).json({ message: "Server error" });

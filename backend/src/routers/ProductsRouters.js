@@ -5,6 +5,8 @@ import {
   updateProduct,
   productDelete,
 } from "../controller/ProductsController.js";
+import AdminMidleware from "../middleware/AdminMidleware.js";
+import authMiddleware from "../middleware/AuthMiddleware.js"
 import path from "path";
 import multer from "multer";
 import { fileURLToPath } from "url";
@@ -33,9 +35,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.get("/products", getProducts);
-router.post("/products", upload.single("image"), createProduct);
-router.patch("/products/:id", upload.single("image"), updateProduct);
-router.delete("/products/:id", productDelete);
+router.get("/products",authMiddleware,AdminMidleware, getProducts);
+router.post("/products",authMiddleware,AdminMidleware, upload.single("image"), createProduct);
+router.patch("/products/:id",authMiddleware,AdminMidleware, upload.single("image"), updateProduct);
+router.delete("/products/:id",authMiddleware,AdminMidleware, productDelete);
 
 export default router;

@@ -26,7 +26,8 @@ export default function Product() {
         setLoading(true);
         try {
             const res = await fetch(`${api()}products`, {
-                cache: "reload"
+                cache: "reload",
+                headers: { "Authorization": `Bearer ${token}` }
             });
             const result = await res.json();
             setProduct(result.data);
@@ -123,7 +124,8 @@ export default function Product() {
         if (!confirm) return;
         try {
             const response = await fetch(`${api()}products/${id}`, {
-                method: "DELETE"
+                method: "DELETE",
+                headers: { "Authorization": `Bearer ${token}` }
             })
             const result = await response.json()
             if (response.ok) {

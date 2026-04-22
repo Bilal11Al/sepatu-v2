@@ -48,7 +48,7 @@ const updateUsers = async (id, data) => {
 
 const getUsersById = async (id) => {
   const sql =
-    "SELECT users.id, users.username, users.email,role.role FROM users JOIN role ON role.id = users.role_id WHERE users.id=?";
+    "SELECT users.id, users.username, users.email,users.role_id,role.role FROM users JOIN role ON role.id = users.role_id WHERE users.id=?";
   const [rows] = await db.execute(sql, [id]);
   return rows[0] || null;
 };
